@@ -1,2 +1,2 @@
 # bobo.github.io
-知识汇总
+https://aershaoye.github.io/bobo.github.io/build/
