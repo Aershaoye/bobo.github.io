@@ -1,0 +1,48 @@
+label {
+	display: block;
+	margin: 10px auto;
+}
+
+//登陆页面的样式
+//最外围的的div样式
+.zrb-max-login {
+	width: 500px;
+	background: red;
+	text-align: center;
+	position: relative;
+	left: 420px;
+	top: 125px;
+	padding: 1px 0px 40px 0px
+}
+
+//input框的样式
+input {
+	width: 180px;
+	height: 30px;
+	margin: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+//按钮登陆的样式
+.ant-btn-primary {
+	margin: 20px 20px 20px 20px
+}
+
+//按钮注册的样式
+.ant-btn {
+	margin: 20px 20px 20px 20px
+}
+
+//注册页面样式
+.zrb-max-register {
+	width: 500px;
+	background: red;
+	position: relative;
+	left: 420px;
+	top: 125px;
+	text-align: center;
+	padding: 30px 0px 10px 0px;
+}
