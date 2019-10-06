@@ -376,38 +376,85 @@ const obj = [
   {
     id: 2,
     text:
-      'Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。',
+      'hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是，是否有指定的键）。',
     //语法
     grammar: '语法:',
-    method: 'Object.assign(target, ...sources)',
+    method: 'obj.hasOwnProperty(prop)',
     //相关链接
     link:
-      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties',
-    relevant: 'Object.defineProperties()',
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain',
+    relevant: '继承与原型链',
     Connect: '相关链接',
     //描述
     describe: '描述',
     describes:
-      '如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。',
-    describes2:
-      'Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，应使用Object.getOwnPropertyDescriptor()和Object.defineProperty() 。',
-    describes3: 'String类型和 Symbol 类型的属性都会被拷贝',
-    describes4:
-      '在出现错误的情况下，例如，如果属性不可写，会引发TypeError，如果在引发错误之前添加了任何属性，则可以更改target对象。',
-    describes5:
-      '注意，Object.assign 不会在那些source对象值为 null 或 undefined 的时候抛出错误。',
+      '所有继承了 Object 的对象都会继承到 hasOwnProperty 方法。这个方法可以用来检测一个对象是否含有特定的自身属性；和 in 运算符不同，该方法会忽略掉那些从原型链上继承到的属性。',
     //参数
     parameter: '参数',
-    parameter1: 'target ：目标对象',
+    parameter1:
+      'prop：要检测的属性的 String 字符串形式表示的名称，或者 Symbol。',
     parameter2: 'sources ：源对象。',
-    //抛出异常
-    abnormal: '抛出异常',
-    abnormal1:
-      'RangeError如果 digits 参数太小或太大。0 到 20（包括）之间的值不会引起 RangeError。实现环境（implementations）也可以支持更大或更小的值。',
-    abnormal2: 'TypeError如果该方法在一个非Number类型的对象上调用。',
+    //备注
+    remarks: '备注',
+    remarks1:
+      '即使属性的值是 null 或 undefined，只要属性存在，hasOwnProperty 依旧会返回 true。',
     //返回值
     retuval: '返回值',
-    retuval1: '目标对象。'
+    retuval1: '用来判断某个对象是否含有指定的属性的布尔值 Boolean。'
+  },
+  {
+    id: 3,
+    text:
+      'Object.defineProperties() 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。',
+    //语法
+    grammar: '语法:',
+    method: 'Object.defineProperties(obj, props)',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties',
+    relevant: '属性的可枚举性和所有权',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes:
+      'Object.defineProperties本质上定义了obj 对象上props的可枚举属性相对应的所有属性。',
+    //参数
+    parameter: '参数',
+    parameter1: 'obj：在其上定义或修改属性的对象。',
+    parameter2:
+      'props ：要定义其可枚举属性或修改的属性描述符的对象。对象中存在的属性描述符主要有两种：数据描述符和访问器描述符（更多详情，请参阅Object.defineProperty()）。描述符具有以下键：',
+    parameter3:
+      'configurable ：true 当且仅当该属性描述符的类型可以被改变并且该属性可以从对应对象中删除。默认为 false',
+    parameter4:
+      'get ：作为该属性的 getter 函数，如果没有 getter 则为undefined。函数返回值将被用作属性的值。默认为 undefined',
+    //返回值
+    retuval: '返回值',
+    retuval1: '传递给函数的对象。'
+  },
+  {
+    id: 4,
+    text: 'Object.fromEntries() 方法把键值对列表转换为一个对象。',
+    //语法
+    grammar: '语法:',
+    method: 'Object.fromEntries(iterable);',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries',
+    relevant: 'Object.entries()',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes:
+      'Object.fromEntries() 方法接收一个键值对的列表参数，并返回一个带有这些键值对的新对象。这个迭代参数应该是一个能够实现@iterator方法的的对象，返回一个迭代器对象。它生成一个具有两个元素的类数组的对象，第一个元素是将用作属性键的值，第二个元素是与该属性键关联的值。',
+    describes2: 'Object.fromEntries() 是 Object.entries 的反转。',
+    //参数
+    parameter: '参数',
+    parameter1: 'iterable',
+    parameter2:
+      '可迭代对象，类似 Array 、 Map 或者其它实现了可迭代协议的对象。',
+    //返回值
+    retuval: '返回值',
+    retuval1: '一个由该迭代对象条目提供对应属性的新对象。'
   }
 ];
 const obj2 = [
@@ -416,13 +463,9 @@ const obj2 = [
     title: '对象的方法',
     chidlren: {
       label: 'assign()',
-      label2: 'toString()',
-      label3: 'toSource()',
-      label4: 'isNaN()',
-      label5: 'parseFloat()',
-      label6: 'parseInt()',
-      label7: 'toLocaleString() ',
-      label8: 'toFixed()'
+      label2: 'hasOwnProperty()',
+      label3: 'defineProperties()',
+      label4: 'fromEntries() '
     }
   }
 ];
@@ -547,10 +590,6 @@ export default () => {
               <p className="zrb-string-summary">{item.chidlren.label2}</p>
               <p className="zrb-string-summary">{item.chidlren.label3}</p>
               <p className="zrb-string-summary">{item.chidlren.label4}</p>
-              <p className="zrb-string-summary">{item.chidlren.label5}</p>
-              <p className="zrb-string-summary">{item.chidlren.label6}</p>
-              <p className="zrb-string-summary">{item.chidlren.label7}</p>
-              <p className="zrb-string-summary">{item.chidlren.label8}</p>
             </Card>
           );
         })}
@@ -569,6 +608,7 @@ export default () => {
               <p>{item.parameter1}</p>
               <p>{item.parameter2}</p>
               <p>{item.parameter3}</p>
+              <p>{item.parameter4}</p>
               {/* 返回值 */}
               <h1>{item.retuval}</h1>
               <p>{item.retuval1}</p>
@@ -586,6 +626,9 @@ export default () => {
               <p>{item.describes3}</p>
               <p>{item.describes4}</p>
               <p>{item.describes5}</p>
+              {/* 备注 */}
+              <h1>{item.remarks}</h1>
+              <p>{item.remarks1}</p>
               {/* 性能 */}
               <h1>{item.performance}</h1>
               <p>{item.performance1}</p>

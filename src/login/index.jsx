@@ -10,14 +10,15 @@ import Knowledge from '../note/knowledge';
 import Jssenior from '../note/Js-senior';
 import Es6grammar from '../note/Es6grammar';
 import Vueframe from '../note/Vueframe';
+import Pramise from '../note/pramise';
 
 export default class Index extends Component {
   constructor() {
     super();
     this.state = {
-      isCom: window.location.hash.slice(1) || 'Register',
-      coust: 'Summary'
+      isCom: window.location.hash.slice(1) || 'Register'
     };
+
     window.onhashchange = () => {
       this.setState({
         isCom: window.location.hash.slice(1)
@@ -27,7 +28,7 @@ export default class Index extends Component {
   onchange = label => {
     window.location.hash = label;
     this.setState({
-      coust: label
+      isCom: label
     });
   };
   //返回的页面数据
@@ -36,7 +37,7 @@ export default class Index extends Component {
   };
   render() {
     let Dom = '';
-    switch (this.state.coust) {
+    switch (this.state.isCom) {
       case 'Register':
         Dom = <Register getdata={this.getdata} />;
         break;
@@ -57,6 +58,9 @@ export default class Index extends Component {
         break;
       case 'Vueframe':
         Dom = <Vueframe />;
+        break;
+      case 'Pramise':
+        Dom = <Pramise />;
         break;
     }
     return (
