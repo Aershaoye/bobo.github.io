@@ -55,7 +55,7 @@ class Home extends Component {
               onClick={this.toggle}
             />
             <Button type="primary" onClick={() => this.props.getdata('Login')}>
-              Primary
+              退出登陆
             </Button>
           </Header>
           <Content
