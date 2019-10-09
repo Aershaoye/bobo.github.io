@@ -10,7 +10,7 @@ const data = [
   { iconType: 'fund', id: 'Jssenior', label: 'js' },
   { iconType: 'dot-chart', id: 'Es6grammar', label: 'ES6语法' },
   { iconType: 'sliders', id: 'Vueframe', label: 'VUE框架' },
-  { iconType: 'bar-chart', id: 'Pramise', label: 'pramise' }
+  { iconType: 'bar-chart', id: 'Pramise', label: 'Promise' }
 ];
 class Home extends Component {
   state = {
