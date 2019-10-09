@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'antd';
+import { List,Card } from 'antd';
 const data = [
   'Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。',
   '所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。',
@@ -9,7 +9,11 @@ const data = [
   '注意，为了行文方便，本章后面的resolved统一只指fulfilled状态，不包含rejected状态。',
   '有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。',
   'Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。',
-  '如果某些事件不断地反复发生，一般来说，使用 Stream 模式是比部署Promise更好的选择。'
+  '如果某些事件不断地反复发生，一般来说，使用 Stream 模式是比部署Promise更好的选择。',
+  '基本用法',
+  'ES6 规定，Promise对象是一个构造函数，用来生成Promise实例',
+  '下面代码创造了一个Promise实例。',
+  ''
 ];
 
 export default () => {
@@ -21,7 +25,18 @@ export default () => {
         bordered
         dataSource={data}
         renderItem={item => <List.Item>{item}</List.Item>}
-      ></List>
+      >
+<Card>
+  <p>{`const promise = new Promise(function(resolve, reject) {`}</p>
+      <p> // ... some code</p>
+      <p>{`if (/* 异步操作成功 */){`}</p>
+      <p>resolve(value);</p>
+      <p>{`  } else {`}</p>
+      <p>reject(error);</p>
+      <p> }</p>
+      <p>});</p>
+    </Card>
+      </List>
     </div>
   );
 };

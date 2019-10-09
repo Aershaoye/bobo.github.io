@@ -469,6 +469,118 @@ const obj2 = [
     }
   }
 ];
+//数组的方法
+const arra = [
+  {
+    id: 1,
+    text:
+      ' concat() 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。',
+    //语法
+    grammar: '语法:',
+    method:
+      'var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push',
+    relevant: 'push',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes:
+      'concat方法创建一个新的数组，它由被调用的对象中的元素组成，每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组）。它不会递归到嵌套数组参数中。',
+    //参数
+    parameter: '参数',
+    parameter1: '将数组和/或值连接成新数组。详情请参阅下文描述。',
+    //返回值
+    retuval: '返回值',
+    retuval1: '新的 Array 实例。'
+  },
+  {
+    id: 2,
+    text:
+      'pop()方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。',
+    //语法
+    grammar: '语法:',
+    method: 'arr.pop()',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push',
+    relevant: 'Array.prototype.push()',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes: 'pop 方法从一个数组中删除并返回最后一个元素。',
+    describes2:
+      'pop 方法有意具有通用性。该方法和 call() 或 apply() 一起使用时，可应用在类似数组的对象上。pop方法根据 length属性来确定最后一个元素的位置。如果不包含length属性或length属性不能被转成一个数值，会将length置为0，并返回undefined。',
+    describes3: '如果你在一个空数组上调用 pop()，它返回  undefined。',
+    //返回值
+    retuval: '返回值',
+    retuval1: '从数组中删除的元素(当数组为空时返回undefined)。'
+  },
+  {
+    id: 3,
+    text: 'push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。',
+    //语法
+    grammar: '语法:',
+    method: 'arr.push(element1, ..., elementN)',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift',
+    relevant: 'Array.prototype.unshift()',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes: 'push方法将值追加到数组中。',
+    describes2:
+      'push 方法有意具有通用性。该方法和 call() 或 apply() 一起使用时，可应用在类似数组的对象上。push 方法根据 length 属性来决定从哪里开始插入给定的值。如果 length 不能被转成一个数值，则插入的元素索引为 0，包括 length 不存在时。当 length 不存在时，将会创建它。',
+    describes3:
+      '唯一的原生类数组（array-like）对象是 Strings，尽管如此，它们并不适用该方法，因为字符串是不可改变的。',
+    //返回值
+    retuval: '返回值',
+    retuval1: '当调用该方法时，新的 length 属性值将被返回。',
+    //参数
+    parameter: '参数',
+    parameter1: 'elementN:被添加到数组末尾的元素'
+  },
+  {
+    id: 4,
+    text:
+      'unshift() 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组)。',
+    //语法
+    grammar: '语法:',
+    method: 'arr.unshift(element1, ..., elementN)',
+    //相关链接
+    link:
+      'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift',
+    relevant: 'Array.prototype.unshift()',
+    Connect: '相关链接',
+    //描述
+    describe: '描述',
+    describes: 'unshift 方法会在调用它的类数组对象的开始位置插入给定的参数。',
+    describes2:
+      'unshift 特意被设计成具有通用性；这个方法能够通过 call 或 apply 方法作用于类数组对象上。不过对于没有 length 属性（代表从0开始的一系列连续的数字属性的最后一个）的对象，调用该方法可能没有任何意义',
+    describes3:
+      '注意, 如果传入多个参数，它们会被以块的形式插入到对象的开始位置，它们的顺序和被作为参数传入时的顺序一致。 于是，传入多个参数调用一次 unshift ，和传入一个参数调用多次 unshift (例如，循环调用)，它们将得到不同的结果',
+    //返回值
+    retuval: '返回值',
+    retuval1: '当一个对象调用该方法时，返回其 length 属性值。',
+    //参数
+    parameter: '参数',
+    parameter1: 'elementN ：要添加到数组开头的元素或多个元素。'
+  }
+];
+const arra2 = [
+  {
+    id: 1,
+    title: '数组的方法',
+    chidlren: {
+      label: 'concat()',
+      label2: 'pop()',
+      label3: 'push()',
+      label4: 'unshift() '
+    }
+  }
+];
 export default () => {
   return (
     <div>
@@ -594,8 +706,70 @@ export default () => {
           );
         })}
       </div>
+      {/* 数组的方法 */}
       <Collapse defaultActiveKey={['key']}>
         {obj.map((item, index) => {
+          return (
+            // 标题
+            <Panel header={<h1>{item.text}</h1>} key={item.id || index}>
+              {/* 语法 */}
+              <h2>{item.grammar}</h2>
+              <p>{item.method}</p>
+              <p>{item.method2}</p>
+              {/* 参数 */}
+              <h1>{item.parameter}</h1>
+              <p>{item.parameter1}</p>
+              <p>{item.parameter2}</p>
+              <p>{item.parameter3}</p>
+              <p>{item.parameter4}</p>
+              {/* 返回值 */}
+              <h1>{item.retuval}</h1>
+              <p>{item.retuval1}</p>
+              <p>{item.retuval2}</p>
+              <p>{item.retuval3}</p>
+              <p>{item.retuval4}</p>
+              {/* 抛出异常 */}
+              <h1>{item.abnormal}</h1>
+              <p>{item.abnormal1}</p>
+              <p>{item.abnormal2}</p>
+              {/* 描述 */}
+              <h2>{item.describe}</h2>
+              <p>{item.describes}</p>
+              <p>{item.describes2}</p>
+              <p>{item.describes3}</p>
+              <p>{item.describes4}</p>
+              <p>{item.describes5}</p>
+              {/* 备注 */}
+              <h1>{item.remarks}</h1>
+              <p>{item.remarks1}</p>
+              {/* 性能 */}
+              <h1>{item.performance}</h1>
+              <p>{item.performance1}</p>
+              {/* 例子 */}
+              <p>{item.example}</p>
+              <p>{item.example1}</p>
+              <p>{item.example2}</p>
+              {/* 相关链接 */}
+              <h2>{item.Connect}</h2>
+              {<a href={item.link}>{item.relevant}</a>}
+            </Panel>
+          );
+        })}
+      </Collapse>
+      <div>
+        {arra2.map((item, index) => {
+          return (
+            <Card key={item.id || index} title={item.title}>
+              <p className="zrb-string-summary">{item.chidlren.label}</p>
+              <p className="zrb-string-summary">{item.chidlren.label2}</p>
+              <p className="zrb-string-summary">{item.chidlren.label3}</p>
+              <p className="zrb-string-summary">{item.chidlren.label4}</p>
+            </Card>
+          );
+        })}
+      </div>
+      <Collapse defaultActiveKey={['key']}>
+        {arra.map((item, index) => {
           return (
             // 标题
             <Panel header={<h1>{item.text}</h1>} key={item.id || index}>

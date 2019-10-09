@@ -7,7 +7,7 @@ const { Header, Sider, Content } = Layout;
 const data = [
   { iconType: 'pie-chart', id: 'Summary', label: '常用知识技巧总结' },
   { iconType: 'box-plot', id: 'Knowledge', label: '知识点汇总' },
-  { iconType: 'fund', id: 'Jssenior', label: 'js高级' },
+  { iconType: 'fund', id: 'Jssenior', label: 'js' },
   { iconType: 'dot-chart', id: 'Es6grammar', label: 'ES6语法' },
   { iconType: 'sliders', id: 'Vueframe', label: 'VUE框架' },
   { iconType: 'bar-chart', id: 'Pramise', label: 'pramise' }
@@ -54,7 +54,9 @@ class Home extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            <Button type="primary">Primary</Button>
+            <Button type="primary" onClick={() => this.props.getdata('Login')}>
+              Primary
+            </Button>
           </Header>
           <Content
             style={{

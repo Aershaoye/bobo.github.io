@@ -70,7 +70,7 @@ export default class Index extends Component {
         ) : this.state.isCom == 'Login' ? (
           <Login getdata={this.getdata} />
         ) : (
-          <Home onchange={this.onchange}>{Dom}</Home>
+          <Home getdata={this.getdata} onchange={this.onchange}>{Dom}</Home>
         )}
       </div>
     );
