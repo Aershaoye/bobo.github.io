@@ -48,8 +48,8 @@ export default class Login extends Component {
           <label>
             密码：
             <input
-              type="text"
-              name="password"
+              type="password"
+              name="pass"
               value={pass}
               onChange={this.setchange}
             />
